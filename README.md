@@ -86,6 +86,56 @@ i.e.: mydomain.com\labuser<br><br>
 <img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/9ef33876-2d71-42eb-a504-c1b7258c89f7"><br><br>
 - - - -
 
+Now you'll create an Admin and Normal User Account in Active Directory.<br><br>
+
+From the search bar on DC-1, you'll locate Active Directory Users and Computers and you'll right click to create an Organizational Unit (OU) named '_EMPLOYEES' (the underscore and caps are not necessary, but they do help to eaisly differentiate the OU's you create from the other containers) and another OU named '_ADMINS' then simply right click on the domain to refresh.<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/b76e3b37-8c33-49c2-bbf0-80a0b3dccd71"><br><br>
+Next you'll go to the _ADMINS OU, open it up and right click inside for New -> Users and add new user. Fill in the name and create a password.<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/1274265f-b1b5-44e6-816d-e975334b4042"><br><br>
+Next you'll add your new user to the Domains Admins Security Group to make them a domain admin. Right click your user to open properties -> Member of -> Add and type 'domain admins' in the box and select Check Names and it should underline, then Apply your changes and select ok. <br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/822bb784-3acb-4353-a708-350e8318ea48"><br><br>
+Next you'll log out of DC-1 and reopen Remote Desktop and log back in as your newly created admin user.<br><br>
+
+i.e.: mydomain.com\jane_admin<br>
+Next you'll join Client-1 to your domain.<br><br>
+- - - -
+
+From the Azure Portal you'll set Client-1’s DNS settings to the DC’s Private IP address.<br>
+Select Client-1 -> Network Settings -><br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/cd36ab66-344c-4f39-92e3-1a18a7c49980"><br><br>
+NIC -><br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/39029c94-d68c-46b2-b984-11e46cb63ca9"><br><br>
+DNS servers -><br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/d39620d2-5b77-487c-aef4-24968c12e83d"><br><br>
+Custom -><br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/5ad73b36-586c-4fe1-bffb-3de49f0fcdea"><br><br>
+Enter DC-1's private ip and save.<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/70dd3344-bc79-4e11-b5a5-ba4984046859"><br><br>
+Now from the Azure portal, restart Client-1.<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/170e0b76-8a02-4ad2-a00b-59983000072d"><br><br>
+Next you'll login to Client-1 (Remote Desktop) as the original local admin (original username only, same domain name) and join it to the domain.<br><br>
+
+Right click start -> System -><br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/f0210c2d-ef3c-4022-bb06-d7f4d102ade8"><br><br>
+Rename this pc advanced -><br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/0d61a73b-17b4-481a-a677-b0230f30aa89"><br><br>
+Change -><br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/cfdb69e0-c54a-48cb-8d65-cdfbe8623b06"><br><br>
+Domain -><br><br>
+<img width="410" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/0fc6baf9-0215-4b84-a4fa-9c0dd3e435c5"><br><br>
+Enter the domain name you created in the box (i.e.: mydomain.com) -><br><br>
+
+Enter the credentials of the domain admin account -> yourdomainname.com(admin user) -> enter admin users password. Welcome to (domainaddress).com should populate somewhere behind the open windows.<br><br>
+
+
+
+
+
+
+
+
+
+
 
 
 
