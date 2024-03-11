@@ -1,3 +1,6 @@
+<img width="697" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/51645b26-b4e7-4842-b0ed-325a2ca98d4e"><br><br>
+- - - -
+
 <h1>Active Directory Deployed in the Cloud (Azure)</h1>
 
 This tutorial outlines the implementation of Active Directory within Azure Virtual Machines.<br>
