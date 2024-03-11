@@ -116,7 +116,7 @@ Now from the Azure portal, restart Client-1.<br><br>
 Next you'll login to Client-1 (Remote Desktop) as the original local admin (original username only, same domain name) and join it to the domain.<br><br>
 
 Right click start -> System -><br><br>
-<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/f0210c2d-ef3c-4022-bb06-d7f4d102ade8"><br><br>
+<img width="250" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/f0210c2d-ef3c-4022-bb06-d7f4d102ade8"><br><br>
 Rename this pc advanced -><br><br>
 <img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/0d61a73b-17b4-481a-a677-b0230f30aa89"><br><br>
 Change -><br><br>
@@ -125,7 +125,45 @@ Domain -><br><br>
 <img width="410" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/0fc6baf9-0215-4b84-a4fa-9c0dd3e435c5"><br><br>
 Enter the domain name you created in the box (i.e.: mydomain.com) -><br><br>
 
-Enter the credentials of the domain admin account -> yourdomainname.com(admin user) -> enter admin users password. Welcome to (domainaddress).com should populate somewhere behind the open windows.<br><br>
+Enter the credentials of the domain admin account -> mydomain.com(admin user) -> enter admin users password. Welcome to (domainaddress).com should populate somewhere behind the open windows.<br><br>
+<img width="350" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/a69b9f70-018b-4348-a297-92f23436353a"><br><br>
+The host will need to restart.<br><br>
+
+Next you'll login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the 'Computers' container on the root of the domain.<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/4e2ef510-9e08-4cc3-91dd-4cc4603c268d"><br><br>
+- - - - 
+
+Now you're going to set it up where all normal domain users are able to remote into Client-1. As of now, only the administrative accounts have remote access into Client-1.
+So log into Client-1 as your domain admin account (i.e.: mydomain.com\jane_admin), you'll go back to system properties (right click the Start menu and select 'System'). Then you'll select Remote Desktop -><br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/3377f9be-4f06-41e3-924c-4ed0125e9e3c"><br><br>
+Select users that can remotely access this PC -> Add... -><br><br>
+<img width="461" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/df46b3a8-a9ad-43bd-8075-7fd98d5670b6"><br><br>
+Type 'domain users" in the box -> Check names -> Ok.<br><br>
+<img width="461" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/4d357428-8e70-42d9-9d18-de12e4db4cd0"><br><br>
+Essentially now all domain users are allowed to log in to this computer. Now you can log into Client-1 as a normal, non-administrative user.<br><br>
+- - - -
+
+Next you'll create a bunch of additional users and attempt to log into Client-1 with one of the new users.<br><br>
+
+Login in DC-1 as your admin account and open PowerShell_ISE as an administrator.<br><br>
+<img width="515" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/05e8b14f-0f69-4ab7-8761-8fb1a1864b4d"><br><br>
+Select new script in the upper left corner -><br><br>
+<img width="515" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/4a7d9090-2696-442f-b04d-61c708e3d8d4"><br><br>
+Paste the contents of you name generator script into Powershell and run the script.<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/f0238555-5608-41be-989f-407453c00fee"><br><br>
+Observe the accounts being created<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/9b3371f8-5d71-4498-9ddf-59f974709867"><br><br>
+Once complete, open Active Directory Users and Computers and refresh the '_EMPLOYEES' container.Observe the newly created accounts.<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/0b4d03e8-a6cb-4af4-9050-253e0b31c033"><br><br>
+Now attempt to log into Client-1 with one of the newly added accounts using the password from the script.<br><br>
+<img width="426" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/78c5b8bb-4211-4c42-b74f-b22f99cb1b19"><br><br>
+<img width="467" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/aa14f139-26a8-4bd9-9c60-109d8d122155"><br><br>
+Active directly has successfully been deployed!
+
+
+
+
+
 
 
 
