@@ -62,7 +62,33 @@ Sort by protocol -> ICMPv4 -><br><br>
 Right click to enable Core Network Diagnosis rules.<br><br>
 
 Return to Client-1 and the ping should now be responding<br><br>
-<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/36532058-cf06-4f9e-97be-f67756e132dc">
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/36532058-cf06-4f9e-97be-f67756e132dc"><br><br>
+Next you'll install Active Directory.<br><br>
+- - - - 
+First, switch back to DC-1. Then you'll go to Server Manager -> Add roles and features -> Active Directory Domain Services<br><br>
+
+(NOTE: Make sure to only select Active Directory Domain Services as there are multiple Active Directory available)<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/6dca0038-7695-4079-bc87-62e61dd46fd2"><br><br>
+<img width="750" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/b4fb92e7-3dca-4d39-ac33-170afd5deb64"><br><br>
+Add features and select next and install.<br><br>
+- - - -
+
+Next you'll promote the server as a Domain Controller. In the upper right corner you'll see a flag with an action sign next to it in the Server Manager notifications section. You'll select promote this server as a domain controller.
+
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/3fff1813-ee92-4114-bbb4-e0a3ac43c72c"><br><br>
+Select Add new forest then set up a new forest as mydomain.com. Conversely it can be named anything, just remember what you choose.<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/56399e71-6415-4736-b3dc-1e6e04cc32df"><br><br>
+Choose a password on the next page and just click through 'Next' and install. Once the installation is complete the host will restart.<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/e0765bf7-50ad-47cd-bdd0-454415eefd01"><br><br>
+Return to DC-1 in Azure and refesh the VM for the public ip address so you can log back into the remote desktop. The ip address should be the same but it might change upon refresh. DC-1 is now a domain controller, so you'll have to long in with the context of the fully qualifed domain name (FQDN) as username. So: yourdomainname.com\whatever username thats a member of this domain, which you created when you initally set up the VM.
+
+i.e.: mydomain.com\labuser<br><br>
+<img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/9ef33876-2d71-42eb-a504-c1b7258c89f7"><br><br>
+- - - -
+
+
+
+
 
 
 
