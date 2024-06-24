@@ -27,7 +27,7 @@ This tutorial outlines the implementation of Active Directory within Azure Virtu
 * Join Client-1 to your domain<br>
 * Setup Remote Desktop for non-administrative users on Client-1<br>
 * Create additional users and log into client-1 with one of the users<br>
-* Deployment and Configuration Steps
+
 <h2>Deployment and Configuration Steps</h2>
 Create the Domain Controller VM (Windows Server 2022) named 'DC-1'. Take note of the Resource Group ( which can be created on the VM creation page or from the Resource Group creation page ) and Virtual Network (Vnet) that gets created here. Select a region to place both VMs in and then select a size that has atleast 2 vcpus; anything less will cause the operating system on the VM to run slowly. Once everything is filled out, review and create the VM.<br><br>
 <img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/260be658-094f-4dab-bfb9-f9311631ff13"><br><br>
