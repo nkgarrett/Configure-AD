@@ -91,7 +91,7 @@ i.e.: mydomain.com\labuser<br><br>
 
 Now you'll create an Admin and Normal User Account in Active Directory.<br><br>
 
-From the search bar on DC-1, locate Active Directory Users and Computers then right click to create an Organizational Unit (OU) named '_EMPLOYEES' (the underscore and caps are not necessary, but they do help to eaisly differentiate the OU's created from the other containers) and another OU named '_ADMINS' then simply right click on the domain to refresh.<br><br>
+From the search bar on DC-1, locate Active Directory Users and Computers then right click to create an Organizational Unit (OU) named '_EMPLOYEES' (the underscore and caps are not necessary, but they do help to easily differentiate the OU's created from the other containers) and another OU named '_ADMINS' then simply right click on the domain to refresh.<br><br>
 <img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/b76e3b37-8c33-49c2-bbf0-80a0b3dccd71"><br><br>
 Next go to the _ADMINS OU, open it up and right click inside for New -> Users and add new user. Fill in the name and create a password.<br><br>
 <img width="500" alt="image" src="https://github.com/nkgarrett/Configure-AD/assets/156832893/1274265f-b1b5-44e6-816d-e975334b4042"><br><br>
